@@ -1,39 +1,19 @@
-## Button 按钮
+## EZsonar4.0
 
-### 概述
-基础组件，有多种`type`可选：
-* `default` 浅灰色边框，淡灰色背景，4px圆角
-* `ghost` 透明背景，其他同`default`
-* `text` 透明边框，当与`icon`配合使用时无内边距，其他同`ghost`
-* `primary`、`info`、`success`、`error`及`warning`5种不同的配色，背景色与边框色相同，4px圆角
+### 项目描述
+ Ezsoner是华青三大产品之一，是一款应用性能管理系统，4.0版本以线上运营的3.0版本核心功能为基础重构，核心功能：业务墙、路径配置、路径流程图、自运维管理、仪表盘、可视化、多维分析、告警管理、系统配置等。
 
-#### 使用
-在模板中直接使用`v-button`标签即可，该组件使用`slot`的方式分发内容，如`icon`和按钮`label`。
+### 项目周期
+一年半
 
-#### 属性
-属性 | 说明 | 类型 | 默认值
------------- | ------------- | ------------- | -------------
-type | 按钮类型，包括`defalut`、`ghost`、`text`、`primary`、`info`、`success`、`error`、`warning`、`light` | String | defalut
-size | 按钮大小，包括`large`、`default`、`small`、`mini` | String | default
-shape | 按钮形状，包括`default`、`circle` | String | default
-icon | 按钮是否为图标按钮，`true`为图标按钮 | Boolean | false
-loading | 载入状态，为`true`时按钮将处于载入状态，不再响应交互并自动显示`loading`图标 | Boolean | false
-miniLoadingTime | 最小载入时长，指定一个最小的载入动画运行时长，用以避免异步过快导致的动画闪现。单位`ms`，为`0`时不启用该功能 | Number | 0
-disabled | 按钮是否禁用，`true`为禁用 | Boolean | false
+### 技术描述
+项目是前后台分离开发模式，前台主要是node+webpack+vue开发，
+项目主要包括：
+* svg绘制的业务墙展示
+* jspumb插件为基础的路径流程图配置和展示
+* echarts为基础的可视化
+* gridList为基础的仪表盘、
+* 告警展示、自运维系统、系统配置等
+* 可视化：以Echarts为基础封装的具有展示、编辑、保存、模板定制等功能的可视化方案，方案主要分三层设计，底层封装Echarts实例，输入标准echarts的options格式，输出chart图，中间层主要是主要对开放的设置项进行解析与并默认设置项进行合并处理，对于特殊类型的图表进行data转化，最终将处理后的data、option传递给底层可视化组件进行图形的绘制。顶层对chart图类型解析，作为可视化的唯一入口（三层设计主要功能是将我们自定义的options	转为chart库options绘制图形，同样的方案，我们可以应用到其它的可视化库）.路径配置展示页面极其复杂，本人主要负责使用jsplumb制作路径图，并配合使用jquery-ui插件，实现页面拖拽生成功能。以及编写路径相关的40多个数据控制侧边栏。
 
-此外，当使用`text`类型时，可能需要为按钮添加主题，这时直接给`v-button`添加对应主题的`class`即可（例如，需要`primary`主题时，添加`class="primary"`），可选的主题有：`primary`、`info`、`success`、`error`、`warning`、`light`。
-
-## ButtonGroup 按钮组
-
-### 概述
-按钮组件的包装层，用来为按钮分组。
-
-#### 使用
-在模板中直接使用`v-button-group`标签即可，该组件使用`slot`的方式分发按钮组件。
-
-#### 属性
-属性 | 说明 | 类型 | 默认值
------------- | ------------- | ------------- | -------------
-vertical | 是否垂直，`true`表示垂直方向 | Boolean | false
-
-## 示例
+## 项目展示
